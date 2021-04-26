@@ -8,8 +8,9 @@ import { NasaService } from './nasa.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'nasaChallenge';
-
+  title = 'NASA Challenge';
+  
+ public asteroid:any [];
   public imgOfTheDay: string = '';
   public service: NasaService;
   constructor( param_service:NasaService ){
@@ -18,9 +19,19 @@ export class AppComponent {
 
 public  ngOnInit():void{
     this.service.getImageOfTheDay().subscribe(
-        (param_msg:string) => {
-            this.imgOfTheDay =  param_msg;
-        }
-    )};
+        (param_msg:any) => {
+           this.imgOfTheDay =  param_msg.url   
+      }
+    )
+    this.service.getObjectOfTheDay().subscribe(
+      (param_msg:any) => {
+        //this.asteroid = param_msg
+        //this.asteroid=(param_msg.near_earth_objects)
+        this.asteroid=(param_msg.near_earth_objects)
+      }
+    )
+  
+  };
+
 }
 

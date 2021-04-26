@@ -1,4 +1,21 @@
-<div>
-  <img src="{{imgOfTheDay}}" alt="image">
+<div class="col-md-fluid">
+  <div class="h-100 p-5 text-white bg-dark rounded-3">
+    <div class="head">
+      <h1 style="color:red">{{title}}</h1>
+    <h3 style="color:yellowgreen">Voici l'image du Jour</h3>
+    <img src="{{imgOfTheDay}}" alt="image" style="width: 60rem;">
+  </div>
 </div>
-<router-outlet></router-outlet>
+</div>
+
+
+<div class="container" class="row">
+<div *ngFor="let array of asteroid" class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{array.name_limited}}</h5>
+    <p class="card-text">{{array.designation}}</p>
+    <a href="{{array.nasa_jpl_url}}" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+</div>
+
